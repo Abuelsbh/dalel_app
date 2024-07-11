@@ -45,6 +45,3 @@ class GetButtons extends StatelessWidget {
     }
   }
 }
-
-
-
