@@ -1,3 +1,4 @@
+import 'package:dalel_app/core/utils/app_text_styles.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -12,12 +13,8 @@ class CustomNavBar extends StatelessWidget {
       alignment: Alignment.centerRight,
       child: Text(
         AppStrings.skip,
-        style: TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.w300,
-            color: Colors.black,
-            fontFamily: "Poppins"
-        ).copyWith(fontWeight: FontWeight.w400),
+        style: CustomTextStyles.poppins300style16
+            .copyWith(fontWeight: FontWeight.w400),
       ),
     );
   }

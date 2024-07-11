@@ -13,37 +13,45 @@ class OnBoardingWidgetBody extends StatelessWidget {
   final PageController _controller = PageController();
   @override
   Widget build(BuildContext context) {
-    return Expanded(
+    return SizedBox(
+      height: 500,
       child: PageView.builder(
+        physics: const BouncingScrollPhysics(),
           controller: _controller,
           itemCount : 3,
           itemBuilder: (context,index){
             return Column(
               children: [
-                Image.asset(Assets.imagesOnBoarding1),
+                Container(
+                  height: 290,
+                  width: 343,
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage(
+                        Assets.imagesOnBoarding1
+                      ),
+                      fit: BoxFit.fill,
+                    ),
+                  ),
+                ),
                 SizedBox(height: 24,),
                 CustomSmoothPageIndicator(controller: _controller),
                 SizedBox(height: 32,),
                 Text(
                   "Explore The history with Dalel in a smart way",
-                  style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.w500,
-                      color: Colors.black,
-                      fontFamily: "Poppins"
-                  ).copyWith(fontWeight: FontWeight.bold),
+                  style: CustomTextStyles.poppins500style24
+                      .copyWith(fontWeight: FontWeight.bold),
                   textAlign: TextAlign.center,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis
                 ),
                 SizedBox(height: 16,),
                 Text(
                   "Explore The history with Dalel in a smart way",
-                  style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w300,
-                      color: Colors.black,
-                      fontFamily: "Poppins"
-                  ) ,
+                  style: CustomTextStyles.poppins300style16 ,
                   textAlign: TextAlign.center,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
                 ),
               ],
             );

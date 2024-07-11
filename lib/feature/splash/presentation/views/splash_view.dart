@@ -27,12 +27,7 @@ class _SplashViewState extends State<SplashView> {
       body: Center(
         child: Text(
             AppStrings.appName,
-            style: TextStyle(
-                fontSize: 64,
-                fontWeight: FontWeight.w400,
-                color: AppColors.deebBrown,
-                fontFamily: "Pacifico"
-            )
+            style: CustomTextStyles.pacifico400style64
         ),
       ),
     );
@@ -44,7 +39,7 @@ void delayedNavigate(context) {
   Future.delayed(
       Duration(seconds: 2),
           () {
-        customNavigation(context, "/onBoarding");
+        customReplacementNavigation(context, "/onBoarding");
       }
   );
 }
