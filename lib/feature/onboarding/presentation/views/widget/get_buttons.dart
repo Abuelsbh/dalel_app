@@ -1,5 +1,5 @@
+import 'package:dalel_app/feature/onboarding/presentation/views/functions/on_boarding.dart';
 import 'package:flutter/cupertino.dart';
-
 import '../../../../../core/functions/navigation.dart';
 import '../../../../../core/utils/app_strings.dart';
 import '../../../../../core/utils/app_text_styles.dart';
@@ -16,11 +16,13 @@ class GetButtons extends StatelessWidget {
       return Column(
         children: [
           CustomBtn(text: AppStrings.createAccount,onPressed: (){
+            onBoardingVisited();
             customReplacementNavigation(context, "/signUp");
           },),
-          SizedBox(height: 16,),
+          const SizedBox(height: 16),
           GestureDetector(
             onTap: (){
+              onBoardingVisited();
               customReplacementNavigation(context, "/signIn");
             },
             child: Text(
@@ -35,7 +37,7 @@ class GetButtons extends StatelessWidget {
       return CustomBtn(text: AppStrings.next,
         onPressed: (){
           controller.nextPage(
-              duration: Duration(milliseconds: 200),
+              duration: const Duration(milliseconds: 200),
               curve: Curves.bounceIn
           );
         },

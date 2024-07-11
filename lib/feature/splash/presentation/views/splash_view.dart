@@ -1,4 +1,6 @@
+import 'package:dalel_app/core/database/cache/cache_helper.dart';
 import 'package:dalel_app/core/functions/navigation.dart';
+import 'package:dalel_app/core/services/service_locator.dart';
 import 'package:dalel_app/core/utils/app_colors.dart';
 import 'package:dalel_app/core/utils/app_strings.dart';
 import 'package:dalel_app/core/utils/app_text_styles.dart';
@@ -17,7 +19,13 @@ class _SplashViewState extends State<SplashView> {
 
   @override
   void initState() {
-    delayedNavigate(context);
+    bool isOnBoardingVisited =
+        get_it<CacheHelper>().getData(key: "isOnBoardingVisited")??false;
+    if(isOnBoardingVisited) {
+      delayedNavigate(context, "/signUp");
+    }else {
+      delayedNavigate(context, "/onBoarding");
+    }
     super.initState();
   }
 
@@ -35,11 +43,11 @@ class _SplashViewState extends State<SplashView> {
 }
 
 
-void delayedNavigate(context) {
+void delayedNavigate(context,path) {
   Future.delayed(
       Duration(seconds: 2),
           () {
-        customReplacementNavigation(context, "/onBoarding");
+        customReplacementNavigation(context, path);
       }
   );
 }
